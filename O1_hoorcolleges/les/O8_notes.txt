@@ -1,0 +1,26 @@
+Matrices
+
+mat = [[],[],[]] ...
+mat[][]  index
+mat[]    rij
+len(mat[])  = lengte rij
+lst = [1,1]
+mat = lst[lst,lst,lst]
+lst = verandert ==> mat verandert ook
+
+isinstance(object,class)
+    isinstance(100,int)
+    isinstance(10,45,(list,tuple,...))
+
+lst = [6,12,-19,33,-44]
+    [ abs(element) for element in lst]
+[ k*2 for k in raneg(0,20) if k%2 != 0 ]
+[None for k in range (0,10)]
+
+mat = [[0,0,0,0]]*5
+mat[0][2] = 'hello'
+mat ==>
+
+mat = [[0,0,0,0] for k in range(0,5) ]
+mat[0][2] = 'hello'
+mat ==>

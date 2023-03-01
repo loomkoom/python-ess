@@ -1,0 +1,41 @@
+dictionaries
+
+
+{} of dict
+
+=> sparse vectors
+    - key value pairs
+    - 'key' = postition and 'value' = value
+    - met keys immutable(hashable) en values mutable
+
+  => [0,0,0,2.7,0,0,0,0,3.8,4.2,0,0] geschreven als { 3:2.7, 8:3.8, 9:4.2, 11:0 }
+
+ex:
+{'a':23,'b':45,'an':60,'a':90}          neemt als a ook de laatste waarden (90)
+{[1,2]:"abc"}                   => error
+{"abc":[1,2]}                   => geen probleem
+
+--> manipulation (cte tijd door hashing)
+
+    len(dc)
+    key in dc <-> key not in dc
+    dc[key]  of dict.get(dc,key,default)         geef de waarde geassocieerd met de key (default als dat er niet is)
+    dict.copy(dc)
+
+    dc[key] = value
+    del dc[key]
+    dict.pop(dc,key,default)
+    dict.pop(dc)                                 willekeurige key
+    dict.clear(dc)                                leegt de dictionary
+
+itereren over een dictionary ==> itereren over de keys van de dictionary
+    => views
+        - als de dictionary van toestand verandert -> verandert de view ook mee
+        - for statements kunnen itereren over views
+
+    bv.
+        hist = {'a':1,'b':2,'c':3}
+        view = dict.values(hist)
+        view
+        del hist['a']
+        view

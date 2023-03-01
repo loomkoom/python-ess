@@ -1,0 +1,54 @@
+sets
+--> set covers
+    U = {L1,L2,L3,...,L200}
+    S1 = {L1,L13,L21}
+    S2 = {L10,...L50}
+
+==> greedy algorithm
+
+    - Find the set that has the most elements in common with the universe
+    - If several such sets exist, select the set with the least elements
+    - Reduce the universe to all the remaining elements.
+    - Repeat the steps above until the universe is reduced to an empty set4
+
+set((x,x,x))
+frozenset((x,x,x))
+{x,x,x}
+    {} empty set?
+
+alle elementen in een set moeten een hash code hebben
+
+elk immutable object krijgt een hash code
+    hash("abc")
+    hash(12)
+    hash(1,35)
+    hash((1,2,3,4))
+    hash(frozenset((1,2)))
+
+    - verschillende objecten kunnen dezelfde hash code hebben maar dit wordt vermeden
+    - hash code van een object verandert niet in de tijd
+
+    deze structuren maken gerbuik van buckets om waarden op te slagen
+        - hash code % # buckets = index bucket
+
+operatoren ook gedefinieerd voor sets
+
+<= of set.issubset(self,s)
+>= of set.issuperset(self,s)
+| of set.union(self,s),
+& of set.intersection(self,s),
+- of set.difference(self,s),
+^ of set.symmetricdifference(self,s)
+
+set.add(self,x)
+set.remove(self,x)     geeft error als element niet in de set zit
+set.discard(self,x)     doet niets als element niet in de set zit
+set.pop(self)        verwijdert willekeurig element in de set
+set.clear(self)
+
+|= of set.update(self,s),                    cfr += neem de unie van de verzameling en zet deze links
+&= of set.intersection_update(self,s),
+-= of set.difference_update(self,s),
+^= of set.symmetric_difference_update(self,s)
+
+--> set is ingebouwde functie dus kan geen variable zijn!

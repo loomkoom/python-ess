@@ -1,0 +1,29 @@
+Tuples
+
+ sequentie van elementen op bepaalde posities   (strings, getallen, ...)
+ Tuples zijn onveranderlijk => per toestand een volledig nieuw tuple aanmaken
+ (<-> strings, lissts, andere soorten sequenties)
+ tuple = (x,y,z,1,2,3,...)
+bv tuple = ("abc",(1,2,3),34.5)   =  tuple met 3 elementen
+bv tuple = (25,)  =  tuple met 1 element   =/=   25
+
+isinstance
+type
+
+t = a,b,c    variabele t is een tuple
+(a,b,c = t)     a b en c zijn waarde t
+a,b,c = 1,2,3   a is 1 b is 2 en c = 3
+
+=> a,b = b,a   a en b omwisselen van waarde
+
+tuples kun je ook slicen t[i:j]     0 -> n-1   <=> -1 --> -n
+bv tup[1:4:2] pos 1 --> pos 4 met stapgrootte 2
+bv tup[4:2:-1] pos 4 --> pos 2 met stapgrootte -1 => pos 3 ipv pos 2
+tup[::-1]  omgekeerde string
+
+tuples vergelijken als de tuples overeenkomen maar niet evenlang zijn is het langere tuple groter
+grootte wordt per element vergeleken van links naar rechts
+
+(a,b)*9 = a,b , a,b , a,b , a,b , a,b , a,b , a,b , a,b , a,b
+(1,2) + (3,4) = (1,2,3,4)
+

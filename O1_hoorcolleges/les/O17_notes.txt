@@ -1,0 +1,23 @@
+Objectgericht programeren
+
+    => invoeren van classen/instance
+    rat = Rational()
+
+    - isinstance(rat,Rational)
+    - rat.numerator = 10
+    - rat.denominator = 25
+    - rat.common_factor = math.gcd(rat.denominator,rat.numerator)
+
+    rat2 = Rational()
+
+    - rat2.numerator = ...
+
+functies vs methoden
+encapsulatie
+   public vs private
+   python : private kan niet echt, enkel moeilijker maken iets op te vragen (1)
+            of enkel gebruik binnnen methoden (2)
+   : zwak signaal = 1 _  => _x   => r._x()
+   : sterk signaal = 2 - => __x  => r_Class__x()
+
+id

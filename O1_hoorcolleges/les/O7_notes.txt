@@ -1,0 +1,25 @@
+
+
+modules uit andere files
+    --> globale variabelen
+for values in list :
+    --> for statement kan vaak een while statement vervangen
+range(start,stop,step)
+    elementen worden weergegeven wanneer je ze opvraagt anders niet
+    of als je list(range)) doet, dan vult range de volledige lijst
+klassen = een verzameling van waarden van een bepaald type
+    --> manipulatie van deze klassen worden methodes genoemd in plaats van functies
+    ==> objectgericht vs functiegeicht
+         object  -> "string".isdigit()          l.index(v)
+         functie -> str.isdigit("string")       list.index(l,v)
+
+list.append(l,x)
+list.extend(l,seq)
+list.insert(l,x,i)    zet x op positie i in lijst l
+list.remove(l,v)
+list.index(l,v)      geeft index van eerste voorkomen van een waarde
+list.count(l,v)      geeft het aantal van voorkomens van een waarde
+
+==> sorteeralgoritmes
+
+

@@ -1,0 +1,170 @@
+Koen.Yskout@cs.kuleuven.be
+vragen?     tiny.cc/mi1819
+
+Tijdscomplexitijd
+    - intro
+    - kostenmodel
+    - worst/average/best case
+    - grote O notatie
+    - voorbeelden
+
+-intro
+
+    uitvoertijd afh van het aantal elementen
+
+    - verschillende sorteer algoritmes
+        -> insertion, selection, bubble, quick, ...
+
+- kostenmodel
+
+    kostenmodel = verzameling van operaties + tijd
+
+    - t_op(i) = t_op(j) voor alle i,j
+    - t_op = 1
+    python : +,-,*,/,//,%,==,<,>,x=?,x,xs[i]=?,xs[i]    (elementaire operaties (kost 1))
+
+    T(A) = SUM_opA(t_op(i)) = k
+
+    => tijdscomplexiteit = T(n) evolutie van de tijd in functie van de grootte van de invoer n
+
+- cases
+
+    best case = invoer die voor de minste operaties zorgt binnen het algeritme
+    worst case = invoer die voor de meeste operaties zorgt
+    average case = willekeurige invoer
+
+    zie testen alg_A,B,C
+
+- grote O
+
+    trend zien van de snelheid => "precies genoeg zonder teveel details"
+
+    f(n) = O(g(n))
+    als er een cte C en n0 bestaat waarvoor geldt:
+    f(n) <= c*g(n) voor akke n >= n0
+
+    - benaderend / lossere definitie
+
+        f(n) ~~ c* g(n) voor  n groot genoeg
+    vb.
+    f(n) = O(f(n))
+        3*(n^) +2 = O(n^2) =/= O(n^3)
+        (10^-10)*(n^2) + (10^10)*n = O(n^2)
+        => term die het snlste stijgt onafhankelijk van de coefficient
+        3*log3(n) + 7 = O(log3(n)) = O(log2(n) = O(log4(n)  ( van base veranderen is vermenigvuldigen met een cte die in de O notatie zit)
+        3^n + 2^n = O(3^n) =/= O(2^n)
+
+    veel voorkomende O's:
+        O(1)      = constante tijd  =>  als T(100) = 1ms dan is T(1000)= 1ms
+        T(n) ~~ c
+
+        O(log(n)) = logaritmisch    => als T(100) = 1ms dan is T(100) = 1.5ms
+        T(n) ~~ c*log(n)
+        T(n^x)~~c*log(n^x) = x*c*log(n) ~~ x*T(n)
+
+        O(n*log(n)) == linearitmisch => T(n) = 15ms
+
+        O(n) = lineair               => T(n) = 10ms
+        T(n) ~~ c*n
+
+        O(n^2)   = kwadratisch      => t(n) = 1000 ms
+        T(n) ~~ c*(n^2)
+        T(n*x)~~ c*(n*x)^2 ~~x^c*n^2 = x^2*T(n)
+
+        O(n^3)   = kubisch          => t(n) = 1000 ms
+        T(n) ~~ c*(n^3)
+
+
+        O(2^n) = exponentieel       => t(n) = 2^200 ms
+        T(n) ~~ c* 2^n
+        T(n+x) ~~ c*2^(n+x) = (2^x)*c*(2^n) = (2^x)*T(n)
+
+        O(n!) = factorieel          => T(n) = (1000!/100!)ms
+
+- basisoperaties
+    -lijsten
+        lege maken:     O(1)
+        [i],[i]=        O(1)
+        append,len:     O(1)
+        count:          O(n)
+        insert:         O(n) worst
+                        O(1) best
+        x in lst:       O(n) worst
+                        O(1) best
+        range(n):       O(1)
+        list(range(n)): O(n)
+
+    - set/dict
+        lege :          O(1)
+        add,get,remove  O(1)        (get in cte tijd! zie hashcodes)
+        len:            O(1)
+        keys,values:    O(n)
+
+- rekenregels grote O
+
+    O(f) + O(g) = max( O(f), O(g) )         met max is de snelst stijgende
+    c* O(f) = O(f)
+    O(f) * O(g) = O(f*g)
+
+- stappenplan grote O
+
+    1) definieer n ifv. de invoer       (bv lengte, waarde, aantal bits,..)
+     + bepaal worst case en best case
+    2) bepaal lussen waar  aantal iteraties afhangt van n
+    3) bepaal andere operaties afhankelijk van n
+    4) combineer met rekenregels
+
+    vb.
+    alg_A:
+        1) n = len(xs)
+         + /
+        2) geen lussen
+        3) set(xs) = (O(n))    (lege set maken en n keer een element toevoegen)
+            len(xs),len(set(xs)),return  = O(1)
+        4) T(n) = O(1) + O(1) + O(n) = O(n)
+      => algoritme dat altijd lineair is
+
+    alg_B:
+        1) n = len(xs)
+         + best case
+        2) body van de lus (for i in range(len(xs))
+           - 1 keer uitgevoerd (omdat het best case is)
+        3) range(len(xs)) = range(n) = O(1)
+           xs[i+1:] = O(n)
+           in = O(1)
+           al de rest ook O(1)
+        4) O(1) + 1*(O(1)*O(n)) = O(n)  BEST CASE
+          + worst case
+        2)- O(n) keer uitgevoerd (omdat het worst case is
+            O(1) + O(n)*(O(n)+O(n)) = O(n^2)
+
+    alg_C:
+    1) n = len(xs)
+         + best case
+        2) body van de lus (for i in range(len(xs))
+           best - O(1) keer uitgevoerd
+           worst - On1) keer uitgevoerd
+        3)
+           in = O(1)
+           al de rest ook O(1)
+        4) O(1) + 1*(O(1)*O(n)) = O(n)  BEST CASE
+
+         + worst case
+        2)- O(n) keer uitgevoerd (omdat het worst case is
+            O(1) + O(n)*(O(n)+O(n)) = O(n^2)
+
+        best case T(n) = O(1)
+        worst case T(n) = O(n)*O(1) = O(n)
+
+    => bereken de tijdscomplexiteit van verschillende sorteeralgoritmes (via stappenplan)
+
+DEEL 2 -----------------------------------------------------------------------------------------------------------------
+
+-intro
+-recursievergelijking opstellen + oplossen
+-voorbeelden
+-heapsort
+
+
+
+

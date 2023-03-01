@@ -1,0 +1,4 @@
+dit klopt, grote O notatie  houdt geen rekening met constanten.
+Hierdoor is het alleen echt betrouwbaar voor n naar oneindig.
+Voor voldoende kleine n zal deze constante factor dus een grotere invloed hebben.
+zo kan een algoritme met O(n^3) sneller zijn dan O(n^2.8)

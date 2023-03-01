@@ -1,0 +1,132 @@
+functioneel programmeren
+
+--> imperatief  <-> declaratief
+
+list comprehension uitbreiding
+
+col = ...
+[elem ** 2 for elem in col if elem % 2 ==1]
+
+col1 = ..
+col2 = ..
+[  elem1 * elem2 for elem1 in col1 for elem2 in coll2 if elem1>=0 and elem2%2 == 0]
+==> elke combinatie van de 2 beperkte lijsten
+
+--> ook set comprehension {}
+    enkel zijn sets niet geordend ==> volgorde is willekeurig
+
+{ x**2 for x in range(0,10) if x %2 ==0}
+{(i,j) fo i in range(1,60) for j in range (1,6) if j > i}
+
+Hogere orde functies:
+    - functies die functies gebruiken als parameters
+
+    bv    x = math.sin
+    niet: x = math.sin()    verwacht een parameter
+          r = random.random
+    niet: r = random.random()  => r wordt een getal
+
+    lst = [math.sin,math.cos,math.tan]
+    ==> for f in lst:
+            print(f(1.0))
+    - def g(f):
+          print(f(3.0))
+      => g(math.sin) = ...
+      => g(math.cos) = ...
+
+ - filter functie
+ filter(f,itertatie)
+ = iterator
+ ==> set(filter(f,set))
+
+
+ lambdas
+ => tijdelijke functies om lokaal te gebruiken
+    - kun je niet oproepen
+    - eenmalige uitvoering
+
+    ex: (lambda:7) ==> 7
+        (lambda x :x**2) (3) ==> 9
+        (lambda x,y : math.sqrt(x**2+y**2)) (3,4) ==> 5
+
+ex globals in console (wanneer verandert het lokaal en wanneer globaal)
+        lst = [1,2,3,4,5]
+        z = 10
+
+        -def f(x):
+            return lst[1]+z+x
+        f(3)
+            15
+
+        -def f(x):
+            lst[1]+=x
+
+        f(3)
+        lst
+            [1, 5, 3, 4, 5]
+
+        -def g(y):
+            z = 12
+            lst = [10,20,30,40]
+            lst[2]+=y
+
+        g(4)
+        lst
+            [1, 5, 3, 4, 5]
+        z
+            10
+
+        -def g(y):
+            global z
+            global lst
+            z = 12
+            lst = [10,20,30,40]
+            lst[2] += y
+        g(5)
+        z
+            12
+        lst
+            [10, 20, 35, 40]
+
+
+
+        n = int(input('geef aantal cijfers'))
+        geef aantal cijfers>? 2
+        numbers = {23,-77,55,7,123}
+        set(filter(lambda nn: (nn >= 10**(n-1) and (nn < 10**n)),numbers))
+            {55, 23}
+
+        coll = {-10,56,33,-77,109}
+        ff = filter(lambda x : x > 0,coll)
+        ff
+            <filter object at 0x03B94CB0>
+        next(ff)
+            33
+        next(ff)
+            109
+        next(ff)
+        56
+        next(ff)
+            Traceback (most recent call last):
+                File "<input>", line 1, in <module>
+            StopIteration
+
+         => eenmalig gebruik
+
+        set(ff)            set of next gebruikt ff ==> steeds ff opnieuw definieren
+            {56, 33, 109}
+
+
+        map(functie dat waarde meegeeft,coll)
+            coll = [4,-16,45,float("Nan"),-350,-2.3e9]
+        map(abs,coll)
+            <map object at 0x03B9B0F0>
+        set(map(abs,coll))
+            {nan, 2300000000.0, 4, 45, 16, 350}
+
+        list(map(lambda st : len(st),{"peeters","steegmans","janssens"}))
+            [7, 9, 8]
+
+        a = 20
+        a = 21
+        "Even" if a%2 == 0 elsee "Odd"

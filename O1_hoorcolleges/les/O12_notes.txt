@@ -1,0 +1,8 @@
+backtracking
+
+==> ge er van uit dat een deel van het probleem al is afgehandeld
+    - probeer verder
+        - opl ==> ok
+        - geen opl ==> probeer opnieuw
+
+cfr boomstructuur en telkens een tak afgaan tot er een oplossing gevonden wordt
